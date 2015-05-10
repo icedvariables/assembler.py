@@ -1,2 +1,2 @@
 # assembler.py
-A assembler to generate machine mode for emulator.c
+An assembler to generate machine mode for emulator.c
