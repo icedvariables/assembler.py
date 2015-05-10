@@ -25,6 +25,12 @@ class Assembler:
                     print "Unknown instruction:", split[0]
 
 
+        # convert to ints
+        for i, val in enumerate(self.out):
+            try:
+                self.out[i] = int(val)
+            except:
+                continue
 
         return self.out
 
