@@ -8,6 +8,9 @@ jumpIfEqual 11
 
 halt
 
+
+# jumps here
+
 push 69
 print
 halt
