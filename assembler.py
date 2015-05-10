@@ -1,4 +1,4 @@
-import re
+import sys
 
 class Assembler:
     def __init__(self):
@@ -35,9 +35,18 @@ class Assembler:
         return self.out
 
 if __name__=="__main__":
+    inputFile = sys.argv[1]
+    outputFile = sys.argv[2]
+
+    try:
+        with open(inputFile) as f:
+            code = f.read()
+    except IOError:
+        print "Could not read file '" + inputFile + "'"
+        sys.exit()
+
     a = Assembler()
-    print a.assemble("""
-    push 5
-    push 10
-    pop
-    """)
+    result = a.assemble(code)
+
+    with open(outputFile, "wb") as f:
+        f.write(bytearray(result))
