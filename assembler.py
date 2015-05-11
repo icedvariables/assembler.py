@@ -8,7 +8,7 @@ class Assembler:
         self.out = []
 
     def assemble(self, code):
-        for line in code.split("\n"):
+        for lineNum, line in enumerate(code.split("\n")):
             line = line.strip().replace(" " * 2, " ").upper()
             split = line.split(" ")
 
@@ -18,6 +18,8 @@ class Assembler:
             if(len(split) > 0 and line[0] != ";"):
                 if(split[0] in self.instructions.keys()):
                     instruction = self.instructions[split[0]]
+
+                    print "Line", lineNum+1, "Instruction", instruction, "Arguments ", split[1:]
 
                     self.out.append(instruction) # Add instruction
                     self.out.extend(split[1:])   # Add arguments
@@ -58,6 +60,8 @@ if __name__=="__main__":
 
     a = Assembler()
     result = a.assemble(code)
+
+    print "\n\n", result
 
     with open(outputFile, "wb") as f:
         f.write(bytearray(result))
