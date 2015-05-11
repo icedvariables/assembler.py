@@ -15,7 +15,7 @@ class Assembler:
             if not(line):
                 continue
 
-            if(len(split) > 0 and line[0] != "#"):
+            if(len(split) > 0 and line[0] != ";"):
                 if(split[0] in self.instructions.keys()):
                     instruction = self.instructions[split[0]]
 
