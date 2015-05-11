@@ -4,12 +4,14 @@ add
 
 push 15
 
-jumpIfEqual 11
+jumpIfEqual 13
 
 halt
 
 
-# jumps here
+; jumps here
+
+#offset 2
 
 push 69
 print

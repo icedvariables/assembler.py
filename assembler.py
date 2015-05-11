@@ -21,6 +21,17 @@ class Assembler:
 
                     self.out.append(instruction) # Add instruction
                     self.out.extend(split[1:])   # Add arguments
+
+                elif(line[0] == "#"): # preprocessor
+                    command = split[0][1:].upper()
+
+                    print "Preprocessor ", command
+
+                    if(command == "OFFSET"):
+                        amount = split[1]
+
+                        self.out.extend([0] * int(amount))
+
                 else:
                     print "Unknown instruction:", split[0]
 
